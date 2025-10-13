@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - EmbedChat Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Top Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </div>
+                        <a href="index.html" class="text-2xl font-bold text-blue-600">EmbedChat Pro</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="sidebar-toggle" class="md:hidden text-gray-700 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout Container -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-40 bg-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0">
+            <div class="flex items-center justify-center h-16 bg-gray-800">
+                <h2 class="text-xl font-bold text-white">Documentation</h2>
+            </div>
+            <nav class="mt-8 px-4 flex-1">
+                <div class="space-y-2">
+                    <a href="index.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+                        </svg>
+                        Overview
+                    </a>
+                    <a href="installation.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                        </svg>
+                        Installation
+                    </a>
+                    <a href="user-guide.html" class="flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        User Guide
+                    </a>
+                    <a href="api-docs.html" class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        API Documentation
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Sidebar Overlay -->
+        <div id="sidebar-overlay" class="fixed inset-0 z-30 bg-gray-600 bg-opacity-75 hidden md:hidden"></div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 md:ml-64">
+            <!-- Hero Section -->
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">User Guide</h1>
+                    <p class="text-xl text-blue-100">Learn how to use EmbedChat Pro dashboard and manage your AI bots</p>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Getting Started</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Dashboard Overview</h3>
+                        <p class="text-gray-600 mb-4">
+                            The EmbedChat Pro dashboard is your central hub for managing AI bots, viewing analytics, 
+                            and configuring settings. Once deployed, you can access it at your domain to create 
+                            and manage multiple bots for different websites.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Create and manage multiple AI bots</li>
+                            <li>Multi-source knowledge base management</li>
+                            <li>Document upload with full text extraction</li>
+                            <li>Web content scraping from URLs</li>
+                            <li>Structured data management</li>
+                            <li>Customize bot appearance and behavior</li>
+                            <li>View real-time analytics and insights</li>
+                            <li>Generate embed codes for any website</li>
+                            <li>Manage user accounts and permissions</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Key Features</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">Multi-Source Knowledge Base</h4>
+                                    <p class="text-sm text-gray-500">FAQs, Documents, URLs, and Structured Data</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">Document Processing</h4>
+                                    <p class="text-sm text-gray-500">PDF, DOCX, TXT with full text extraction</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">Web Content Scraping</h4>
+                                    <p class="text-sm text-gray-500">Automatic URL content extraction</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">Multi-Bot Management</h4>
+                                    <p class="text-sm text-gray-500">Create unlimited bots for different websites</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">Real-time Analytics</h4>
+                                    <p class="text-sm text-gray-500">Track conversations and user engagement</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">Custom Styling</h4>
+                                    <p class="text-sm text-gray-500">Match your brand with custom colors and themes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Chatbots Navigation -->
+        <section id="dashboard" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">All Chatbots Navigation</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Navigation Menu Order</h3>
+                <p class="text-gray-600 mb-6">The All Chatbots navigation follows a logical flow for easy access to all features:</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">All Chatbots</h4>
+                        <p class="text-gray-600 text-sm">Overview of all your bots and analytics</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Analytics</h4>
+                        <p class="text-gray-600 text-sm">View detailed analytics and reports</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Settings</h4>
+                        <p class="text-gray-600 text-sm">Configure system and account settings</p>
+                    </div>
+                    <div class="text-center p-4 border border-gray-200 rounded-lg">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Profile</h4>
+                        <p class="text-gray-600 text-sm">Manage your account and profile</p>
+                    </div>
+                    <div class="text-center p-4 border border-red-200 rounded-lg">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Sign Out</h4>
+                        <p class="text-gray-600 text-sm">Log out of your account</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bot Settings -->
+        <section id="bot-settings" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Bot Settings & Configuration</h2>
+            
+            <div class="space-y-8">
+                <!-- Creating a Bot -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Creating a New Bot</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-blue-600">1</span>
+                            </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Navigate to Bots</h4>
+                                <p class="text-gray-600">Click on the "Bots" section in the dashboard navigation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-blue-600">2</span>
+                            </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Click "Create New Bot"</h4>
+                                <p class="text-gray-600">Fill in the basic information for your bot</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-blue-600">3</span>
+                            </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">Configure Settings</h4>
+                                <p class="text-gray-600">Set up the bot's behavior, appearance, and responses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot Configuration Options -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Bot Configuration Options</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Basic Settings</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Bot ID:</strong> Unique identifier for your bot</li>
+                                <li>• <strong>Bot Name:</strong> Display name for your chatbot</li>
+                                <li>• <strong>Welcome Message:</strong> Initial message shown to users</li>
+                                <li>• <strong>Multi-Source Knowledge Base:</strong> FAQs, Documents, URLs, Structured Data</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Appearance Settings</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Theme Color:</strong> Primary color for the chat widget</li>
+                                <li>• <strong>Responsive Design:</strong> Mobile-friendly interface</li>
+                                <li>• <strong>Custom Styling:</strong> Matches your brand colors</li>
+                                <li>• <strong>Auto-positioning:</strong> Bottom-right corner placement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multi-Source Knowledge Base -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Multi-Source Knowledge Base</h3>
+                    <div class="space-y-6">
+                        <p class="text-gray-600">Build a comprehensive knowledge base using multiple data sources. The AI intelligently combines information from all enabled sources to provide accurate, context-aware responses.</p>
+                        
+                        <!-- Knowledge Base Tabs -->
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Knowledge Base Sources</h4>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg border border-gray-200">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="font-semibold text-gray-900 mb-2">FAQs</h5>
+                                    <p class="text-sm text-gray-600">Traditional Q&A format</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg border border-gray-200">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="font-semibold text-gray-900 mb-2">Documents</h5>
+                                    <p class="text-sm text-gray-600">PDF, DOCX, TXT files</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg border border-gray-200">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="font-semibold text-gray-900 mb-2">Web Content</h5>
+                                    <p class="text-sm text-gray-600">URL scraping</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg border border-gray-200">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="font-semibold text-gray-900 mb-2">Structured Data</h5>
+                                    <p class="text-sm text-gray-600">Products, pricing, services</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Section -->
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                            <h4 class="text-lg font-medium text-blue-900 mb-2">1. FAQ Management</h4>
+                            <p class="text-blue-800 mb-2">Add your FAQs in this simple format:</p>
+                            <pre class="bg-blue-100 p-3 rounded text-sm text-blue-900"><code>Q: What are your business hours?
+A: We're open Monday-Friday 9AM-5PM.
+
+Q: How can I contact support?
+A: You can reach us at support@example.com or call (555) 123-4567.
+
+Q: Do you offer refunds?
+A: Yes, we offer a 30-day money-back guarantee on all products.</code></pre>
+                        </div>
+
+                        <!-- Document Upload Section -->
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h4 class="text-lg font-medium text-green-900 mb-2">2. Document Upload</h4>
+                            <p class="text-green-800 mb-2">Upload documents with full text extraction:</p>
+                            <ul class="space-y-1 text-green-800">
+                                <li>• <strong>PDF Files:</strong> Full text extraction using advanced parsing</li>
+                                <li>• <strong>DOCX Files:</strong> Complete document content processing</li>
+                                <li>• <strong>TXT Files:</strong> Direct text content integration</li>
+                                <li>• <strong>Categories:</strong> Organize documents by type or topic</li>
+                                <li>• <strong>Tags:</strong> Add searchable tags for better organization</li>
+                            </ul>
+                        </div>
+
+                        <!-- Web Content Section -->
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                            <h4 class="text-lg font-medium text-purple-900 mb-2">3. Web Content Scraping</h4>
+                            <p class="text-purple-800 mb-2">Automatically scrape content from URLs:</p>
+                            <ul class="space-y-1 text-purple-800">
+                                <li>• <strong>URL Input:</strong> Add any public website URL</li>
+                                <li>• <strong>Automatic Scraping:</strong> Extract text content automatically</li>
+                                <li>• <strong>Title Detection:</strong> Automatically detect page titles</li>
+                                <li>• <strong>Content Processing:</strong> Clean and format scraped content</li>
+                                <li>• <strong>Categories & Tags:</strong> Organize scraped content</li>
+                            </ul>
+                        </div>
+
+                        <!-- Structured Data Section -->
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-4">
+                            <h4 class="text-lg font-medium text-orange-900 mb-2">4. Structured Data Management</h4>
+                            <p class="text-orange-800 mb-2">Add structured data for specific use cases:</p>
+                            <ul class="space-y-1 text-orange-800">
+                                <li>• <strong>Products:</strong> Product catalogs with specifications</li>
+                                <li>• <strong>Pricing:</strong> Pricing tables and packages</li>
+                                <li>• <strong>Services:</strong> Service offerings and descriptions</li>
+                                <li>• <strong>Catalogs:</strong> General catalog information</li>
+                                <li>• <strong>JSON Format:</strong> Flexible data structure</li>
+                            </ul>
+                            <div class="mt-3">
+                                <p class="text-orange-800 mb-2">Example JSON structure:</p>
+                                <pre class="bg-orange-100 p-3 rounded text-sm text-orange-900"><code>{
+  "products": [
+    {
+      "name": "Premium Plan",
+      "price": 99,
+      "features": ["Feature 1", "Feature 2"],
+      "description": "Our premium offering"
+    }
+  ]
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Management Features -->
+                        <div class="bg-gray-50 border-l-4 border-gray-400 p-4">
+                            <h4 class="text-lg font-medium text-gray-900 mb-2">Smart Management Features</h4>
+                            <ul class="space-y-1 text-gray-800">
+                                <li>• <strong>Enable/Disable:</strong> Toggle individual knowledge sources on/off</li>
+                                <li>• <strong>Categorization:</strong> Organize content by categories</li>
+                                <li>• <strong>Tagging:</strong> Add searchable tags to content</li>
+                                <li>• <strong>Real-time Preview:</strong> See changes instantly</li>
+                                <li>• <strong>Bulk Operations:</strong> Manage multiple sources efficiently</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Embed Code -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Getting Your Embed Code</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">Once your bot is configured, get the embed code:</p>
+                        <div class="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                            <pre><code class="language-html">&lt;script src="https://your-domain.com/bot.js" data-bot="YOUR_BOT_ID"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                        <p class="text-sm text-gray-600">Copy this code and paste it into your website's HTML before the closing &lt;/body&gt; tag.</p>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h4 class="text-lg font-medium text-yellow-900 mb-2">Important Notes</h4>
+                            <ul class="space-y-1 text-yellow-800">
+                                <li>• Replace "YOUR_BOT_ID" with your actual bot ID from the dashboard</li>
+                                <li>• Replace "your-domain.com" with your actual domain</li>
+                                <li>• The widget will appear in the bottom-right corner of your website</li>
+                                <li>• The script automatically handles responsive design and mobile compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics -->
+        <section id="analytics" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Analytics & Insights</h2>
+            
+            <div class="space-y-8">
+                <!-- Analytics Overview -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">User Analytics Dashboard</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">Total Bots</div>
+                            <div class="text-sm text-gray-600">Number of chatbots created</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">Total Messages</div>
+                            <div class="text-sm text-gray-600">All-time message count</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">Account Age</div>
+                            <div class="text-sm text-gray-600">Days since account creation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Available Metrics</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-2">Account Information</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Total number of bots created</li>
+                                <li>• Total messages sent across all bots</li>
+                                <li>• Account creation date</li>
+                                <li>• Last login date</li>
+                                <li>• Account age in days</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-2">API Configuration</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• OpenAI API key status (configured/not configured)</li>
+                                <li>• API key length (for security verification)</li>
+                                <li>• Settings configuration status</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All Chatbots Features -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">All Chatbots Features</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-600">The All Chatbots page provides comprehensive bot management capabilities:</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-900 mb-2">Bot Management</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Create new chatbots with unique IDs</li>
+                                    <li>• Edit bot settings and configurations</li>
+                                    <li>• Delete unwanted bots</li>
+                                    <li>• Search and filter bots</li>
+                                    <li>• Pagination for large bot collections</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-900 mb-2">Real-time Features</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• Live chat preview</li>
+                                    <li>• Instant embed code generation</li>
+                                    <li>• Real-time FAQ editing</li>
+                                    <li>• Auto-save functionality</li>
+                                    <li>• Responsive design testing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Features -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">System Features & Capabilities</h2>
+            
+            <div class="space-y-8">
+                <!-- Authentication System -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Authentication System</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Security Features</h4>
+                            <p class="text-gray-600 mb-3">Built-in security measures to protect your data:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Email/password registration and login</li>
+                                <li>• Password hashing with bcrypt</li>
+                                <li>• Session management with NextAuth.js</li>
+                                <li>• Protected routes and API endpoints</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">User Management</h4>
+                            <p class="text-gray-600 mb-3">Comprehensive user account features:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Profile management and updates</li>
+                                <li>• Password change functionality</li>
+                                <li>• Account settings configuration</li>
+                                <li>• Secure logout and session handling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Loading Improvements -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Enhanced User Experience</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Page Loading States</h4>
+                            <p class="text-gray-600 mb-3">All major pages now include loading spinners and states:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Settings Page</strong> - Shows "Loading settings..." while fetching data</li>
+                                <li>• <strong>Profile Page</strong> - Shows "Loading profile..." while loading user data</li>
+                                <li>• <strong>Analytics Page</strong> - Shows "Loading statistics..." while fetching analytics</li>
+                                <li>• <strong>All Chatbots</strong> - Enhanced loading states for bot creation and management</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Real-time Data</h4>
+                            <p class="text-gray-600 mb-3">All analytics data is now fetched from the database in real-time:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Bot Count</strong> - Real count of user's bots</li>
+                                <li>• <strong>Message Count</strong> - Actual message statistics</li>
+                                <li>• <strong>Account Age</strong> - Calculated from account creation date</li>
+                                <li>• <strong>API Key Status</strong> - Real-time API key validation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot Management Improvements -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Bot Management Enhancements</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Improved Bot Creation</h4>
+                            <p class="text-gray-600 mb-3">Enhanced bot creation process with better user feedback:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Loading States</strong> - "Creating..." button with spinner during bot creation</li>
+                                <li>• <strong>Error Messages</strong> - Clear error messages for duplicate bot IDs</li>
+                                <li>• <strong>Success Messages</strong> - Confirmation messages after successful bot creation</li>
+                                <li>• <strong>Validation Hints</strong> - Helpful hints for bot ID requirements</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Bot Deletion Feedback</h4>
+                            <p class="text-gray-600 mb-3">Better user feedback for bot operations:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Success Messages</strong> - Confirmation when bots are deleted</li>
+                                <li>• <strong>Error Handling</strong> - Clear error messages for failed operations</li>
+                                <li>• <strong>Auto-dismiss</strong> - Messages automatically disappear after a few seconds</li>
+                                <li>• <strong>Visual Feedback</strong> - Color-coded success (green) and error (red) messages</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Management -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Profile Management Updates</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Simplified Profile Page</h4>
+                            <p class="text-gray-600 mb-3">Streamlined profile management with better data handling:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Edit-Only Form</strong> - Simplified to show only editable fields</li>
+                                <li>• <strong>Real-time Updates</strong> - Form fields update immediately after changes</li>
+                                <li>• <strong>Database Sync</strong> - Always shows current database values</li>
+                                <li>• <strong>Session Refresh</strong> - Automatic session refresh for email changes</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-3">Analytics Separation</h4>
+                            <p class="text-gray-600 mb-3">Analytics moved to dedicated page for better organization:</p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• <strong>Dedicated Analytics Page</strong> - Separate page for comprehensive analytics</li>
+                                <li>• <strong>Real-time Data</strong> - All analytics data fetched from database</li>
+                                <li>• <strong>User-specific Metrics</strong> - Personalized analytics for each user</li>
+                                <li>• <strong>Performance Metrics</strong> - Detailed performance and usage statistics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Features -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Technical Features</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">AI Integration</h3>
+                    <p class="text-gray-600 mb-4">Powered by OpenAI's gpt-4o-mini for intelligent responses:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>FAQ-based response generation</li>
+                        <li>Context-aware conversations</li>
+                        <li>Professional and friendly tone</li>
+                        <li>Fallback handling for unknown queries</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Widget Integration</h3>
+                    <p class="text-gray-600 mb-4">Easy integration with any website using vanilla JavaScript:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>One-line embed code integration</li>
+                        <li>Responsive design for all devices</li>
+                        <li>Conversation history with localStorage</li>
+                        <li>Customizable theme colors</li>
+                        <li>Auto-positioning in bottom-right corner</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Database & Storage</h3>
+                    <p class="text-gray-600 mb-4">Robust data management with MongoDB:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>User authentication and profiles</li>
+                        <li>Bot settings and configurations</li>
+                        <li>Message tracking and analytics</li>
+                        <li>FAQ content storage</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Security Features</h3>
+                    <p class="text-gray-600 mb-4">Built-in security measures to protect your data and users.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Password hashing with bcrypt</li>
+                        <li>Session-based authentication</li>
+                        <li>Protected API endpoints</li>
+                        <li>Input validation and sanitization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Common Issues & Solutions</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="space-y-6">
+                    <div class="border-l-4 border-red-400 pl-4">
+                        <h4 class="text-lg font-medium text-gray-900">Bot Not Responding</h4>
+                        <p class="text-gray-600 mt-2">Check your OpenAI API key configuration and ensure your bot is active in the dashboard.</p>
+                    </div>
+                    <div class="border-l-4 border-yellow-400 pl-4">
+                        <h4 class="text-lg font-medium text-gray-900">Styling Issues</h4>
+                        <p class="text-gray-600 mt-2">Clear your browser cache and check for CSS conflicts with your website's styles.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-4">
+                        <h4 class="text-lg font-medium text-gray-900">Analytics Not Updating</h4>
+                        <p class="text-gray-600 mt-2">Ensure your bot is properly connected and check the analytics refresh settings.</p>
+                    </div>
+                    <div class="border-l-4 border-green-400 pl-4">
+                        <h4 class="text-lg font-medium text-gray-900">Performance Issues</h4>
+                        <p class="text-gray-600 mt-2">Optimize your knowledge base and consider upgrading your OpenAI plan for better performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">EmbedChat Pro</h3>
+                    <p class="text-gray-400">AI-powered FAQ bot widget for all websites</p>
+                    <p class="text-gray-400 mt-2">by <strong>Code Aristos</strong></p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Documentation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="installation.html" class="text-gray-400 hover:text-white">Installation</a></li>
+                        <li><a href="user-guide.html" class="text-gray-400 hover:text-white">User Guide</a></li>
+                        <li><a href="api-docs.html" class="text-gray-400 hover:text-white">API Docs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><strong>Email:</strong> <a href="mailto:rizvi.mahmud.plabon@gmail.com" class="hover:text-white">rizvi.mahmud.plabon@gmail.com</a></p>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801777024443" class="hover:text-white">+8801777024443</a></p>
+                        <p><strong>Website:</strong> <a href="https://codearistos.net" class="hover:text-white" target="_blank">codearistos.net</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Portfolio</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><strong>CodeCanyon:</strong></p>
+                        <p><a href="https://codecanyon.net/user/codearistos/portfolio" class="hover:text-white" target="_blank">codearistos Portfolio</a></p>
+                        <p class="text-sm mt-2">Check out our other premium products</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 EmbedChat Pro by Code Aristos. All rights reserved.</p>
+            </div>
+        </div>
+        </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar toggle functionality
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.classList.toggle('hidden');
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
