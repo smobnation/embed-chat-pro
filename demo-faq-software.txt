@@ -1,0 +1,79 @@
+Q: What software products do you offer?
+A: We offer a comprehensive suite of business software solutions including CRM systems, project management tools, accounting software, and custom development services. Our flagship products include SalesPro CRM, TaskMaster PM, and FinanceFlow accounting software.
+
+Q: Do you offer free trials?
+A: Yes! We offer 14-day free trials for all our software products. No credit card required. You can sign up directly on our website and start using the full-featured software immediately. After the trial period, you can choose to continue with one of our paid plans.
+
+Q: What are your pricing plans?
+A: We offer flexible pricing plans to suit businesses of all sizes:
+- Starter Plan: $29/month for up to 5 users
+- Professional Plan: $79/month for up to 25 users  
+- Enterprise Plan: $199/month for unlimited users
+- Custom solutions available for large organizations
+
+Q: Is there a setup fee or long-term contract?
+A: No setup fees and no long-term contracts required. All our plans are month-to-month with the option to cancel anytime. We also offer annual billing with a 20% discount.
+
+Q: Do you provide customer support?
+A: Absolutely! We provide 24/7 customer support via live chat, email, and phone. Our support team is available to help with setup, training, and any technical issues. Enterprise customers also get dedicated account managers.
+
+Q: Can I integrate your software with my existing tools?
+A: Yes, our software integrates with over 200+ popular business tools including Salesforce, Slack, Microsoft Office, Google Workspace, QuickBooks, and many more. We also offer custom API integrations for specific needs.
+
+Q: Is my data secure?
+A: Security is our top priority. We use enterprise-grade encryption, regular security audits, and comply with SOC 2, GDPR, and HIPAA standards. Your data is backed up daily and stored in secure, geographically distributed data centers.
+
+Q: Do you offer training and onboarding?
+A: Yes! We provide comprehensive onboarding including:
+- Free setup consultation
+- Video tutorials and documentation
+- Live training sessions
+- Dedicated success manager for Enterprise customers
+- Regular webinars and best practices guides
+
+Q: Can I customize the software to fit my business needs?
+A: Our software is highly customizable with configurable workflows, custom fields, and white-labeling options. For Enterprise customers, we offer custom development services to build specific features tailored to your business processes.
+
+Q: What happens if I need to cancel my subscription?
+A: You can cancel your subscription anytime from your account dashboard. There are no cancellation fees, and you'll retain access to your data for 30 days after cancellation. We can also help you export your data in various formats.
+
+Q: Do you offer mobile apps?
+A: Yes! We provide native mobile apps for iOS and Android, plus a responsive web interface that works on any device. All features are available on mobile with real-time synchronization across all platforms.
+
+Q: What payment methods do you accept?
+A: We accept all major credit cards (Visa, MasterCard, American Express), PayPal, bank transfers, and purchase orders for Enterprise customers. All payments are processed securely through our PCI-compliant payment system.
+
+Q: Can I upgrade or downgrade my plan anytime?
+A: Yes, you can change your plan at any time from your account settings. Upgrades take effect immediately, and downgrades take effect at your next billing cycle. Prorated credits or charges are applied automatically.
+
+Q: Do you offer volume discounts?
+A: Yes! We offer volume discounts for organizations with 100+ users. Contact our sales team for custom pricing based on your specific needs and user count.
+
+Q: What's your uptime guarantee?
+A: We guarantee 99.9% uptime with our enterprise-grade infrastructure. If we fall below this threshold, we provide service credits as outlined in our SLA. Our current uptime is 99.97% over the past 12 months.
+
+Q: Can I get a demo before signing up?
+A: Absolutely! You can request a personalized demo with one of our product specialists. We'll show you exactly how our software can solve your specific business challenges. Demos typically last 30-45 minutes and can be scheduled at your convenience.
+
+Q: Do you offer white-label solutions?
+A: Yes! Our Enterprise plan includes white-labeling options where you can rebrand our software with your own logo, colors, and domain. This is perfect for agencies and consultants who want to offer our software under their own brand.
+
+Q: What's included in the Enterprise plan?
+A: The Enterprise plan includes everything in Professional plus:
+- Unlimited users and storage
+- Advanced security features
+- Custom integrations and API access
+- Dedicated account manager
+- Priority support with 1-hour response time
+- Custom training and onboarding
+- White-labeling options
+- Advanced reporting and analytics
+
+Q: How do I get started?
+A: Getting started is easy! Simply sign up for a free trial on our website, and you'll receive an email with your login credentials and next steps. Our onboarding team will reach out within 24 hours to help you get set up and answer any questions.
+
+Q: Do you have a partner program?
+A: Yes! We have a comprehensive partner program for consultants, agencies, and resellers. Partners receive special pricing, marketing support, and revenue sharing opportunities. Contact our partnerships team to learn more about becoming a certified partner.
+
+Q: What if I need help migrating from my current software?
+A: We provide free data migration services for all new customers. Our technical team will help you export data from your current system and import it into our software, ensuring a smooth transition with minimal downtime.
